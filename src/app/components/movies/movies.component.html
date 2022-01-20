@@ -1,22 +1,28 @@
-<section class="row d-flex justify-content-evenly all-images">
+<!-- Al ser del boostrap 4.0 la galeria tuve que importar las versiones viejas o ya no andaba -->
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
 
-  <div class="card animate fadeIn fast" style="width: 15rem; margin-bottom: 20px;" *ngFor="let movie of newMovies; let i = index">
-
-    <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" class="card-img-top animales-img" [alt]="movie.title">
+<div class="card-columns ">
+  <div class="card " *ngFor="let movie of newMovies; let i = index">
+    <img class="card-img-top" src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" alt="Card image cap">
     <div class="card-body">
-      <h5 class="card-title text-center">{{movie.title}}{{movie.name}}</h5>
+      <h5 class="card-title ">{{movie.title}}{{movie.name}}</h5>
       <p class="card-text">{{movie.overview}}</p>
     </div>
     <div class="container"><span *ngIf="movie.vote_average>=8" class="badge rounded-pill bg-success mb-2">{{movie.vote_average}}</span>
       <span *ngIf="movie.vote_average<8" class="badge rounded-pill bg-warning mb-2">{{movie.vote_average}}</span>
       <span class="badge rounded-pill bg-info text-dark">{{movie.original_language}}</span>
       <span class="badge rounded-pill bg-light text-dark">{{movie.release_date}}</span>
+      <span *ngIf="movie.adult==false" class="badge rounded-pill bg-secondary mb-2">Family-Friendly</span>
+      <span *ngIf="movie.adult!==false" class="badge rounded-pill bg-danger mb-2">Adult</span>
     </div>
 
 
-    <div class="d-grid gap-2">
+    <div class="d-grid gap-2 col-12 mx-auto">
       <div style="margin-bottom: 10px;" class="btn btn-primary" (click)="addToCart(i) ">Buy now!</div>
     </div>
   </div>
-
-</section>

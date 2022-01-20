@@ -6,6 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { MovieService } from 'src/app/services/movie.service';
 //Esto es para pedidos http
 import { HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-movies',
   templateUrl: './movies.component.html',
