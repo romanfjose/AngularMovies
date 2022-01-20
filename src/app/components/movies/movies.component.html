@@ -1,0 +1,22 @@
+<section class="row d-flex justify-content-evenly all-images">
+
+  <div class="card animate fadeIn fast" style="width: 15rem; margin-bottom: 20px;" *ngFor="let movie of newMovies; let i = index">
+
+    <img src="https://image.tmdb.org/t/p/w500/{{movie.backdrop_path}}" class="card-img-top animales-img" [alt]="movie.title">
+    <div class="card-body">
+      <h5 class="card-title text-center">{{movie.title}}{{movie.name}}</h5>
+      <p class="card-text">{{movie.overview}}</p>
+    </div>
+    <div class="container"><span *ngIf="movie.vote_average>=8" class="badge rounded-pill bg-success mb-2">{{movie.vote_average}}</span>
+      <span *ngIf="movie.vote_average<8" class="badge rounded-pill bg-warning mb-2">{{movie.vote_average}}</span>
+      <span class="badge rounded-pill bg-info text-dark">{{movie.original_language}}</span>
+      <span class="badge rounded-pill bg-light text-dark">{{movie.release_date}}</span>
+    </div>
+
+
+    <div class="d-grid gap-2">
+      <div style="margin-bottom: 10px;" class="btn btn-primary" (click)="addToCart(i) ">Buy now!</div>
+    </div>
+  </div>
+
+</section>
