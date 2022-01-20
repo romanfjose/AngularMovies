@@ -25,11 +25,9 @@ export class MovieService {
  //Nos trae las peliculas nuevas
   getNewReleases(){
 
-    // const headers = new HttpHeaders({
-    //   'Authorization': 'Bearer BQAYppVpMsfpuN4bU2-1UJDA-gGcTRxTjbiRZbg8sMbsPnZt6npfSbXvJiGOTsDjg2UIki_q_8OHuMYC8eQ'
-    // });
 
-    return this.http.get('https://api.themoviedb.org/3/trending/all/day?api_key=d14a2527e170d451ea5bfcead2d724f0');
+
+    return this.http.get('https://api.themoviedb.org/3/trending/all/day?api_key=<<apikey>>');
 
    }
 }
